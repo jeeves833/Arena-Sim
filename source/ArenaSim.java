@@ -15,6 +15,37 @@ public class ArenaSim {
         }
         int state = 0;
 
+        int maxWins = -1;
+        while (maxWins < 0) {
+        	try {
+	        	maxWins = Integer.parseInt(c.readLine("Max wins: "));
+	        	if (maxWins <= 0) {
+	        		maxWins = -1;
+	        		System.out.println("Max wins must be greater than 0");
+	        		continue;
+	        	}
+	        } catch (NumberFormatException e) {
+	        	System.out.println("Not a valid number");
+	        }
+        }
+
+		int maxLoss = -1;
+		while (maxLoss < 0) {
+        	try {
+	        	maxLoss = Integer.parseInt(c.readLine("Max wins: "));
+	        	if (maxLoss <= 0) {
+	        		maxLoss = -1;
+	        		System.out.println("Max wins must be greater than 0");
+	        		continue;
+	        	}
+	        } catch (NumberFormatException e) {
+	        	System.out.println("Not a valid number");
+	        }
+        }
+
+
+
+
         while (state != 1 && state != 2) {
         	try {
         		state = Integer.parseInt(c.readLine("\nSelect which calculation to make:\n1 for Percentile Computation\n2 for Simulating Runs\n:"));
@@ -31,9 +62,6 @@ public class ArenaSim {
     			System.out.println("Simulating Arena Runs");
     			break;
         }
-
-		int maxWins = 12;
-		int maxLoss = 3;
 
 		float[][] percentages;
 		int[][] runResults;
